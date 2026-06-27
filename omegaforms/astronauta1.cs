@@ -20,7 +20,7 @@ namespace omegaforms
             Inventario = new List<string>();
         }
 
-        // Acciones astronauta
+        // Acciones del astronauta
         public void RecibirAtaque(int cantidad)
         {
             Vida -= cantidad;

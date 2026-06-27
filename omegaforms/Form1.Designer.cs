@@ -2,15 +2,9 @@
 {
     partial class Form1
     {
-        /// <summary>
-        ///  Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        ///  Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+      
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,12 +14,6 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             lblTitulo = new Label();
@@ -111,7 +99,7 @@
             txtNarrativa.Location = new Point(26, 136);
             txtNarrativa.Name = "txtNarrativa";
             txtNarrativa.ReadOnly = true;
-            txtNarrativa.Size = new Size(541, 152);
+            txtNarrativa.Size = new Size(541, 187);
             txtNarrativa.TabIndex = 7;
             txtNarrativa.Text = "";
             // 
@@ -126,7 +114,7 @@
             // 
             // btnOpcion1
             // 
-            btnOpcion1.Location = new Point(26, 294);
+            btnOpcion1.Location = new Point(26, 354);
             btnOpcion1.Name = "btnOpcion1";
             btnOpcion1.Size = new Size(117, 47);
             btnOpcion1.TabIndex = 9;
@@ -136,7 +124,7 @@
             // 
             // btnOpcion2
             // 
-            btnOpcion2.Location = new Point(252, 294);
+            btnOpcion2.Location = new Point(242, 354);
             btnOpcion2.Name = "btnOpcion2";
             btnOpcion2.Size = new Size(116, 47);
             btnOpcion2.TabIndex = 10;
@@ -146,7 +134,7 @@
             // 
             // btnOpcion3
             // 
-            btnOpcion3.Location = new Point(451, 294);
+            btnOpcion3.Location = new Point(451, 354);
             btnOpcion3.Name = "btnOpcion3";
             btnOpcion3.Size = new Size(116, 47);
             btnOpcion3.TabIndex = 11;
@@ -177,7 +165,6 @@
             PerformLayout();
         }
 
-        #endregion
 
         private Label lblTitulo;
         private ProgressBar prgVida;

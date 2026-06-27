@@ -1,3 +1,13 @@
+//Pregunta 1
+//Forms no reconoce un bucle (while) ni read-writeline.
+//Se debio hacer un flujo guiado por los clics para poder contonuar con las opciones del juego
+//se crea una maquina de estados enum la cual remplaza el bucle while para poder darle interfaz al juego
+//Pregunta 2
+//Una gran ventaja es el poder trabajar de manera separada es decir modificar el diseño (No los names de los botones o acciones) sin romper el codigo
+//tambien si se trabaja via git, uno puede estar haciendo el diseño.
+//pregunta 3
+//Solo se puede reutilizar la clase de astronauta al 100 dado que es "logica de negocio pura" es decir datos vida energia y las matematicas para restarlas.
+
 using System;
 using System.Windows.Forms;
 
@@ -113,7 +123,7 @@ namespace omegaforms
             }
         }
 
-        // --- CLIC BOTÓN 1 ---
+        //click btn 1
         private void btnOpcion1_Click(object sender, EventArgs e)
         {
             if (estadoActual == EstadoJuego.MenuPrincipal)
@@ -151,7 +161,7 @@ namespace omegaforms
             }
         }
 
-        // --- CLIC BOTÓN 2 ---
+        // click btn2
         private void btnOpcion2_Click(object sender, EventArgs e)
         {
             if (estadoActual == EstadoJuego.MenuPrincipal)
@@ -197,14 +207,28 @@ namespace omegaforms
 
                 if (jugador.Energia > 0)
                 {
-                    txtNarrativa.Text = "Empiezas a correr desesperadamente. Logras perderlo al meterte en un conducto de ventilación, pero el conducto cierra el paso automáticamente al detectar un objeto. Te quedas atrapado sin oxígeno.";
+                    
                     jugador.RecibirAtaque(100);
+                    ActualizarInterfaz();
+
+                    
+                    txtNarrativa.Text = "Empiezas a correr desesperadamente por los pasillos chocando con todo a tu paso. " +
+                                        "Logras perderlo al meterte en un conducto de ventilación, pero el conducto cierra el paso al detectar un objeto.\r\n\r\n" +
+                                        "Estás a salvo del alien, pero morirás entre 2 paredes. Te quedas sin oxígeno.\r\n\r\n" +
+                                        ">>> GAME OVER: Asfixiado en el sistema de ventilación.";
+
+                    
+                    ConfigurarBotones(false, false, false);
                 }
-                CambiarEstado(EstadoJuego.FinDelJuego);
+                else
+                {
+                    
+                    CambiarEstado(EstadoJuego.FinDelJuego);
+                }
             }
         }
 
-        // --- CLIC BOTÓN 3 ---
+        // click btn3
         private void btnOpcion3_Click(object sender, EventArgs e)
         {
             if (estadoActual == EstadoJuego.MenuPrincipal)
@@ -213,13 +237,12 @@ namespace omegaforms
             }
         }
 
-        // --- MÉTODOS AUXILIARES ---
         private void ActualizarInterfaz()
         {
             prgVida.Value = Math.Max(0, Math.Min(100, jugador.Vida));
             prgEnergia.Value = Math.Max(0, Math.Min(100, jugador.Energia));
 
-            // Funciona tanto para ListBox como para CheckedListBox
+            // manejo inventario
             lstInventario.Items.Clear();
             foreach (var item in jugador.Inventario)
             {
